@@ -13,9 +13,9 @@ RUN apt-get install php8.0 php8.0-cli php8.0-cgi php8.0-fpm php8.0-gd php8.0-mys
 RUN echo "listen = 0.0.0.0:9000" >> /etc/php/8.0/fpm/pool.d/www.conf
 
 # Install Composer
-COPY install-composer.sh /root/proj/install-composer.sh
-RUN chmod +x /root/proj/install-composer.sh
-RUN ./install-composer.sh
+COPY install-composer.sh /root/install-composer.sh
+RUN chmod +x /root/install-composer.sh
+RUN /root/install-composer.sh
 RUN chmod 766 composer-setup.php
 RUN rm /etc/nginx/conf.d/default.conf
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer

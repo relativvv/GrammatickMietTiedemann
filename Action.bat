@@ -47,7 +47,6 @@ IF "%ACTION%"=="1" (
     echo ------------------------------------
     echo.
     PAUSE
-    CALL :Decision
 )
 
 IF "%ACTION%"=="2" (
