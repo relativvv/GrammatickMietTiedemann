@@ -42,8 +42,8 @@ IF "%ACTION%"=="1" (
     )
     echo.
     echo ------------------------------------
-    echo Das Backend erreichst du unter http://localhost:42069.
-    echo Das Frontend erreichst du unter http://localhost:3000, Hier musst Du aber ein paar Sekunden warten bis es erreichbar ist.
+    echo Das Backend erreichst Du unter http://localhost:42069.
+    echo Das Frontend erreichst Du unter http://localhost:3000, Hier musst Du aber ein paar Sekunden warten bis es erreichbar ist.
     echo ------------------------------------
     echo.
     PAUSE

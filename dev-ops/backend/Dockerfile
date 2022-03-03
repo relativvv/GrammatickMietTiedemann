@@ -20,3 +20,8 @@ RUN chmod 766 composer-setup.php
 RUN rm /etc/nginx/conf.d/default.conf
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN rm composer-setup.php
+
+# Install Symfony CLI
+RUN echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | tee /etc/apt/sources.list.d/symfony-cli.list
+RUN apt-get update
+RUN apt-get install symfony-cli -y

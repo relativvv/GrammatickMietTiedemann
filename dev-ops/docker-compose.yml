@@ -30,7 +30,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=eqgfoYbQWJirL5FvZphSf8
+      - MYSQL_ROOT_PASSWORD=qrMDtQy74iTwei7j22R4
       - MYSQL_DATABASE=grammatickmiettiedemann
       - PGID=0
       - PUID=0
@@ -44,7 +44,7 @@ services:
     environment:
       - PMA_HOST=database
       - PMA_USER=root
-      - PMA_PASSWORD=eqgfoYbQWJirL5FvZphSf8
+      - PMA_PASSWORD=qrMDtQy74iTwei7j22R4
     ports:
       - "9898:80"
     networks:
