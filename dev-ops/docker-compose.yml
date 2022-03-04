@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: app_core
+    restart: unless-stopped
+    volumes:
+      - ../backend:/usr/share/nginx/html/proj
+    ports:
+      - "42069:80"
+    networks:
+      - development
+
+  frontend:
+    build: ./frontend
+    container_name: app_frontend
+    restart: unless-stopped
+    volumes:
+      - ../frontend:/root/proj
+    ports:
+      - "3000:3000"
+    networks:
+      - development
+
+  mysql:
+    image: mysql:8.0.28-oracle
+    container_name: database
+    restart: unless-stopped
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=qrMDtQy74iTwei7j22R4
+      - MYSQL_DATABASE=grammatickmiettiedemann
+      - PGID=0
+      - PUID=0
+    networks:
+      - development
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      - PMA_HOST=database
+      - PMA_USER=root
+      - PMA_PASSWORD=qrMDtQy74iTwei7j22R4
+    ports:
+      - "9898:80"
+    networks:
+      - development
+
+networks:
+  development:
+
+volumes:
+  mysql_data: {}
