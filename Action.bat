@@ -84,7 +84,7 @@ IF "%ACTION%"=="5" (
 IF "%ACTION%"=="6" (
     color 0f
     echo Frontend-Logs werden geladen...
-    docker logs app_frontend
+    docker logs -f app_frontend
     PAUSE
     CALL :Decision
 )
