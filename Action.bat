@@ -34,6 +34,7 @@ IF "%ACTION%"=="0" (
 IF "%ACTION%"=="1" (
     cd dev-ops
     echo Setup wird gestartet...
+    powershell -Command "((Get-Content frontend/node.sh) -join \"`n\") + \"`n\" | Set-Content -NoNewline frontend/node.sh"
     docker-compose up -d
     docker exec -ti app_core service php8.0-fpm start
     cd backend
