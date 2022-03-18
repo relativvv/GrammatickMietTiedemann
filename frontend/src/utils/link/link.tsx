@@ -7,12 +7,12 @@ type linkProps = {
     link: string
 }
 
-const getClassName = (className: string) => className === 'primary' ? 'btn btn-primary' : 'btn btn-secondary';
-
 const Link = ({text, variant, link}: linkProps) => {
+    const classNames = variant === 'primary' ? 'btn btn-primary' : 'btn btn-secondary';
+
     return (
         <>
-            <a href={link} className={getClassName(variant)}>{text}</a>
+            <a href={link} className={classNames}>{text}</a>
         </>
     )
 };
