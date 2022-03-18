@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.scss';
 import {Container} from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
+import TaskDescription from '../untils/taskDescription/TaskDescription';
 
 
 const app: FC<Record<string, never>> = () => {
@@ -18,6 +19,10 @@ const app: FC<Record<string, never>> = () => {
                 <p>Hellofeowpjfffff lovjkfwenfe erbwiasdjknqgwmefk nweisdynf werigsdfynweuigsdf vfdkjnbiogasdf
                     sowgjefsiojgnwkls</p>
             </Container>
+            <TaskDescription
+                headline={"Titel der Aufgabe"}
+                description={"lsdflksdlksldfsnfknsdkjnfjsnnsdfnsdfnksdnfkjngngkjfsöljfjlvnslkdhkn"}
+            />
         </>
     )
 };
