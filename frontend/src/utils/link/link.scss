@@ -1,0 +1,33 @@
+//ToDo ist nen general style und muss in ne general datei
+$background-color: #202126;
+$white: #fff;
+
+.btn {
+    font-size: 18px;
+    line-height: calc(17/18);
+    border-radius: 24px;
+    padding: 14px 20px;
+    border: 2px solid transparent;
+    color: $white;
+
+    &:hover {
+        box-shadow: 0 0 0 0.2rem rgba(0, 214, 111, 0.5);
+        border-color: transparent;
+    }
+
+    &-primary {
+        background: linear-gradient(135deg, #0BB8A1, #04B545);
+        border-color: transparent;
+    }
+
+    &-secondary {
+        background-image: linear-gradient($background-color, $background-color),
+        linear-gradient(135deg, #0BB8A1, #04B545);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+}
+
+body {
+    background-color: $background-color;
+}
