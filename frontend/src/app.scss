@@ -1,6 +1,10 @@
-//ToDo ist nen general style und muss in ne general datei
 $background-color: #202126;
 $white: #fff;
+
+body {
+    background-color: $background-color;
+    color: $white;
+}
 
 .btn {
     font-size: 18px;
