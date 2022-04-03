@@ -1,0 +1,27 @@
+.header {
+    &-inner {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("./../../images/header.jpg");
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @media (max-width: 767px) {
+            height: 100px;
+            padding: 0 10px;
+        }
+    }
+
+    h1 {
+        font-weight: 700;
+        word-break: break-word;
+        hyphens: auto;
+
+        @media (max-width: 767px) {
+            font-size: 1.5rem;
+        }
+    }
+}
