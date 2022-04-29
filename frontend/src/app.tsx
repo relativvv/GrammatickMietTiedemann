@@ -12,6 +12,11 @@ const app: FC<Record<string, never>> = () => {
             <Container className='container'>
                 <Description />
             </Container>
+
+            <div className="input-wrapper">
+                <input type="text" id="test" placeholder=" " />
+                <label htmlFor="test">Test</label>
+            </div>
         </>
     )
 };
