@@ -51,6 +51,10 @@ const Topic: React.FunctionComponent<TopicProps> = ({
                     alt={alt}
                     thumbnail
                 />
+                <h1>{headline}</h1>
+                <p dangerouslySetInnerHTML={{
+                    __html: description.replaceAll('\n', '<br/>') }}
+                />
             </Container>
         </>
     );
