@@ -22,7 +22,9 @@ const Topic: React.FunctionComponent<TopicProps> = ({
             <Container className='d-flex flex-row topic-front-page'>
                 <div className='p2 topic-front-page__text'>
                     <h1>{headline}</h1>
-                    <p>{description}</p>
+                    <p dangerouslySetInnerHTML={{
+                        __html: `${description.substring(0, 400)} ...`.replaceAll('\n', '<br/>') }}
+                    />
                 </div>
                 <Image
                     className='p2 topic-front-page__image'
