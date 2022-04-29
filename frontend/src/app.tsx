@@ -14,7 +14,7 @@ const app: React.FunctionComponent = () => {
         <>
             <Header />
             <Container className='container'>
-                <Description />
+                {isFrontPage && <Description />}
                 <Topic
                     frontPage={isFrontPage}
                     image='https://www.kapiert.de/media/image/AB1FDD01/A4ED779D/79386D4A/3B422604.png'
