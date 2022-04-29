@@ -26,13 +26,13 @@ body {
     }
 
     &-primary {
-        background: linear-gradient(135deg, #0BB8A1, #04B545);
+        background: linear-gradient(135deg, $turquoise, $green);
         border-color: transparent;
     }
 
     &-secondary {
         background-image: linear-gradient($background-color, $background-color),
-        linear-gradient(135deg, #0BB8A1, #04B545);
+        linear-gradient(135deg, $turquoise, $green);
         background-origin: border-box;
         background-clip: padding-box, border-box;
     }
