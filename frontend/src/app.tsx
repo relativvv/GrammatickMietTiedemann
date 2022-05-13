@@ -58,7 +58,6 @@ const app: React.FunctionComponent = () => {
         <>
             <Header />
             <Container className='container'>
-                <LoginRegistration />
                 {selectedTopicId === 0
                     ? (
                         <>
