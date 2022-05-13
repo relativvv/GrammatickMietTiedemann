@@ -1,0 +1,26 @@
+.inputAnswer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    .headline{
+        font-size: 50px;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+
+        .question{
+            padding-bottom: 10px;
+        }
+
+        .submit-button{
+            button{
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+    }
+}

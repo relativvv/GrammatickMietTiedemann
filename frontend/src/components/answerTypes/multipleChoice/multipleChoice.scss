@@ -5,21 +5,25 @@
   margin: 0 7%;
   justify-self: center;
 
-  &__answers {
-    display: flex;
+  &__answers-container {
+    margin-left: 15px;
 
-    &__checkbox {
-      align-self: center;
-      margin-right: 10px;
-    }
+    &__answers {
+      display: flex;
 
-    &__label {
-      margin: 0;
+      &__checkbox {
+        align-self: center;
+        margin-right: 10px;
+      }
+
+      &__label {
+        margin: 0;
+      }
     }
   }
 
   &__button {
-    width: 100px;
-    align-self: center;
+    width: min-content;
+    margin: 10px 0;
   }
 }

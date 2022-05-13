@@ -14,6 +14,9 @@ class Category
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    private $description;
+
+    #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
     public function toArray(): array
@@ -21,6 +24,7 @@ class Category
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
+            'description' => $this->getDescription()
         ];
     }
 
@@ -39,5 +43,15 @@ class Category
         $this->name = $name;
 
         return $this;
+    }
+
+    public function setDescription(string $description): self {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string {
+        return $this->description;
     }
 }
