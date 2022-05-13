@@ -13,11 +13,20 @@ class CategoryController extends AbstractController
     {
     }
 
-    #[Route('/category/all', name: 'app_category')]
+    #[Route('/category/all', name: 'app_all_categories')]
     public function getAllCategories(): JsonResponse
     {
-        $categories = array_map(static fn ($category) => $category->toArray(), $this->categoryService->getAllCategories());
+        $categories = array_map(static fn ($category) => $category->toArrayWithoutAnswers(), $this->categoryService->getAllCategories());
 
         return new JsonResponse($categories);
+    }
+
+    #[Route('/category/{id}', name: 'app_one_category')]
+    public function getQuestionsByCategory(int $id): JsonResponse
+    {
+        $category = $this->categoryService->findCategoryById($id);
+        $questions = array_map(static fn ($question) => $question->toArrayWithoutAnswers(), $this->categoryService->getAllQuestionsByCategory($category));
+
+        return new JsonResponse($questions);
     }
 }

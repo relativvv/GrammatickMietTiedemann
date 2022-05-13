@@ -1,5 +1,7 @@
 $background-color: #202126;
 $white: #fff;
+$turquoise: #0BB8A1;
+$green: #04B545;
 
 body {
     background-color: $background-color;
@@ -24,14 +26,65 @@ body {
     }
 
     &-primary {
-        background: linear-gradient(135deg, #0BB8A1, #04B545);
+        background: linear-gradient(135deg, $turquoise, $green);
         border-color: transparent;
     }
 
     &-secondary {
         background-image: linear-gradient($background-color, $background-color),
-        linear-gradient(135deg, #0BB8A1, #04B545);
+        linear-gradient(135deg, $turquoise, $green);
         background-origin: border-box;
         background-clip: padding-box, border-box;
+    }
+}
+
+.input-wrapper {
+    position: relative;
+    height: 48px;
+    border-radius: 10px;
+
+    input {
+        background: transparent;
+        outline: none;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        font-size: 16px;
+        height: 100%;
+        width: 200px;
+        color: $white;
+        padding: 10px 16px;
+        background-image: linear-gradient($background-color, $background-color),
+        linear-gradient(to left, $white, $white);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+
+        &:focus,
+        &:not(:placeholder-shown) {
+            padding: 16px 16px 7px;
+
+            & ~ label {
+                transform: scale(.625);
+                margin-top: 2px;
+            }
+        }
+
+        &:focus {
+            background-image: linear-gradient($background-color, $background-color), linear-gradient(135deg, $turquoise, $green);
+        }
+    }
+
+    label {
+        $margin: 6.5px;
+        position: absolute;
+        color: $white;
+        pointer-events: none;
+        top: 0;
+        left: 16px;
+        margin-top: $margin;
+        height: calc(100% - #{$margin} * 2);
+        display: flex;
+        align-items: center;
+        transform-origin: top left;
+        transition: all 600ms ease;
     }
 }

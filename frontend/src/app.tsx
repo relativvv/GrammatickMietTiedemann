@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.scss';
 import Header from "./components/header/header";
@@ -9,6 +9,16 @@ import Topic from "./components/topic/topic";
 const app: React.FunctionComponent = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isFrontPage, setIsFrontPage] = useState(true);
+
+    const fetchCategories = async () => {
+        const cat = await getAllCategories();
+        console.log("cat");
+    }
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        fetchCategories().then();
+    }, []);
 
     return (
         <>
@@ -25,6 +35,12 @@ const app: React.FunctionComponent = () => {
                     setIsFrontPage={setIsFrontPage}
                 />
             </Container>
+            <MultipleChoice />
+
+            <div className="input-wrapper">
+                <input type="text" id="test" placeholder=" " />
+                <label htmlFor="test">Test</label>
+            </div>
         </>
     )
 };

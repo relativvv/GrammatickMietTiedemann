@@ -1,0 +1,25 @@
+.multiple-choice {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 7%;
+  justify-self: center;
+
+  &__answers {
+    display: flex;
+
+    &__checkbox {
+      align-self: center;
+      margin-right: 10px;
+    }
+
+    &__label {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    width: 100px;
+    align-self: center;
+  }
+}
