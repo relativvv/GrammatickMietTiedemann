@@ -19,9 +19,13 @@
 
 .topic {
   margin-top: 30px;
-  text-align: center;
 
-  &__image {
+  &__image-container {
+    text-align: center;
     height: 70%;
+  }
+
+  &__headline {
+    margin-top: 15px;
   }
 }

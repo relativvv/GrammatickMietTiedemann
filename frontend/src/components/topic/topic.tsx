@@ -45,13 +45,16 @@ const Topic: React.FunctionComponent<TopicProps> = ({
     return (
         <>
             <Container className='topic'>
-                <Image
-                    className='topic__image'
-                    src={image}
-                    alt={alt}
-                    thumbnail
-                />
-                <h1>{headline}</h1>
+                <div className='topic__image-container'>
+                    <Image
+                        className='topic__image'
+                        src={image}
+                        alt={alt}
+                        thumbnail
+                    />
+                </div>
+
+                <h1 className='topic__headline'>{headline}</h1>
                 <p dangerouslySetInnerHTML={{
                     __html: description.replaceAll('\n', '<br/>') }}
                 />
