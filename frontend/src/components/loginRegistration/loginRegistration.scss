@@ -1,18 +1,42 @@
+@import "./src/variables";
+
 .login-container {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
 
+    .login {
+        position: relative;
+
+        .btn {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    .login,
+    .registration {
+        flex-basis: calc(50% - 2px);
+    }
+
     .form-headline {
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .input-wrapper {
+        margin-bottom: 20px;
     }
 
     .btn {
         width: 100%;
     }
 
-    .input-wrapper:not(:last-child) {
-        margin-bottom: 20px;
+    .recover-password {
+        margin-bottom: 1rem;
+
+        a {
+            color: $green;
+        }
     }
 
     .divider {
@@ -20,6 +44,7 @@
         width: 2px;
         display: flex;
         align-items: center;
+        margin: 0 50px;
 
         &-inner {
             position: absolute;

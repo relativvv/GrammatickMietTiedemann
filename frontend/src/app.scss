@@ -1,7 +1,4 @@
-$background-color: #202126;
-$white: #fff;
-$turquoise: #0BB8A1;
-$green: #04B545;
+@import "variables";
 
 body {
     background-color: $background-color;
@@ -51,7 +48,7 @@ body {
         border-radius: 10px;
         font-size: 16px;
         height: 100%;
-        width: 200px;
+        width: 100%;
         color: $white;
         padding: 10px 16px;
         background-image: linear-gradient($background-color, $background-color),
