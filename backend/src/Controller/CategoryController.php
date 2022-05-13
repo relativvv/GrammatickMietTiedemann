@@ -16,7 +16,7 @@ class CategoryController extends AbstractController
     #[Route('/category/all', name: 'app_all_categories')]
     public function getAllCategories(): JsonResponse
     {
-        $categories = array_map(static fn ($category) => $category->toArrayWithoutAnswers(), $this->categoryService->getAllCategories());
+        $categories = array_map(static fn ($category) => $category->toArray(), $this->categoryService->getAllCategories());
 
         return new JsonResponse($categories);
     }
