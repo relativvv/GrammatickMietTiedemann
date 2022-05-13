@@ -4,6 +4,7 @@ import {Container, Image} from "react-bootstrap";
 
 type TopicProps = {
     frontPage: boolean,
+    id: number,
     image: string,
     alt: string,
     headline: string,
@@ -13,6 +14,7 @@ type TopicProps = {
 
 const Topic: React.FunctionComponent<TopicProps> = ({
                                                         frontPage,
+                                                        id,
                                                         image,
                                                         alt,
                                                         headline,
@@ -24,7 +26,7 @@ const Topic: React.FunctionComponent<TopicProps> = ({
             <Container
                 className='d-flex flex-row topic-front-page'
                 // @ts-expect-error
-                onClick={() => setIsFrontPage(false)}
+                onClick={() => setIsFrontPage(id)}
             >
                 <div className='p2 topic-front-page__text'>
                     <h1>{headline}</h1>
