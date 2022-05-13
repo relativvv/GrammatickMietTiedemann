@@ -5,6 +5,7 @@ import Header from "./components/header/header";
 import Description from "./components/description/description";
 import {Container} from "react-bootstrap";
 import MultipleChoice from "./components/answerTypes/multipleChoice/multipleChoice";
+import LoginRegistration from "./components/loginRegistration/loginRegistration";
 
 const app: FC<Record<string, never>> = () => {
     return (
@@ -15,10 +16,7 @@ const app: FC<Record<string, never>> = () => {
             </Container>
             <MultipleChoice />
 
-            <div className="input-wrapper">
-                <input type="text" id="test" placeholder=" " />
-                <label htmlFor="test">Test</label>
-            </div>
+            <LoginRegistration />
         </>
     )
 };
