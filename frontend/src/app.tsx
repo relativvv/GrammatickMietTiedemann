@@ -6,6 +6,7 @@ import Header from "./components/header/header";
 import Description from "./components/description/description";
 import {Container} from "react-bootstrap";
 import MultipleChoice from "./components/answerTypes/multipleChoice/multipleChoice";
+import LoginRegistration from "./components/loginRegistration/loginRegistration";
 import { getAllCategories, getQuestions } from './api/categories/categories';
 import {Category} from "./types/categories";
 import Topic from "./components/topic/topic";

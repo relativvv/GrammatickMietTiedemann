@@ -1,5 +1,31 @@
-.container{
+.login-container {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+
+    .form-headline {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .input-wrapper:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .divider {
+        position: relative;
+        width: 2px;
+        display: flex;
+        align-items: center;
+
+        &-inner {
+            position: absolute;
+            height: 70%;
+            background-color: gray;
+            width: 100%;
+        }
+    }
 }
