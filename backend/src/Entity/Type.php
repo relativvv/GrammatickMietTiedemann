@@ -26,6 +26,14 @@ class Type
         $this->questions = new ArrayCollection();
     }
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName()
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

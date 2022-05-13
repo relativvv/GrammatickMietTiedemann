@@ -33,7 +33,8 @@ class Question
             'id' => $this->getId(),
             'question' => $this->getQuestion(),
             'answers' => $this->getAnswers(),
-            'type' => $this->getType()
+            'type' => $this->getType()->toArray(),
+            'category' => $this->getCategory()->toArray()
         ];
     }
 
@@ -42,7 +43,8 @@ class Question
         return [
             'id' => $this->getId(),
             'question' => $this->getQuestion(),
-            'type' => $this->getType()
+            'type' => $this->getType()->toArray(),
+            'category' => $this->getCategory()->toArray()
         ];
     }
 

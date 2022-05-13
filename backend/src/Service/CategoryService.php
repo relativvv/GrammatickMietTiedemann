@@ -4,10 +4,11 @@ namespace App\Service;
 
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
+use App\Repository\QuestionRepository;
 
 class CategoryService
 {
-    public function __construct(private CategoryRepository $categoryRepository)
+    public function __construct(private CategoryRepository $categoryRepository, private QuestionRepository $questionRepository)
     {
     }
 
@@ -23,6 +24,6 @@ class CategoryService
 
     public function getAllQuestionsByCategory(Category $category): array
     {
-        return $this->categoryRepository->findBy(['category' => $category]);
+        return $this->questionRepository->findBy(['category' => $category]);
     }
 }
