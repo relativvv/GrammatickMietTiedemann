@@ -5,9 +5,8 @@ import './app.scss';
 import Header from "./components/header/header";
 import Description from "./components/description/description";
 import {Container} from "react-bootstrap";
-import Topic from "./components/topic/topic";
-import {getAllCategories} from "./api/categories/categories";
 import MultipleChoice from "./components/answerTypes/multipleChoice/multipleChoice";
+import { getAllCategories, getQuestions } from './api/categories/categories';
 
 const app: React.FunctionComponent = () => {
     const [topics, setTopics] = useState([1, 2, 3]);
@@ -15,9 +14,10 @@ const app: React.FunctionComponent = () => {
     const [selectedTopic, setSelectedTopic] = useState(null);
 
     const fetchCategories = async () => {
-        const categories = await getAllCategories();
-        setTopics(categories);
-        console.log("category", categories);
+        const cat = await getAllCategories();
+        console.log("cat", cat);
+        const test = await getQuestions(cat[0].id);
+        console.log("test", test);
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks

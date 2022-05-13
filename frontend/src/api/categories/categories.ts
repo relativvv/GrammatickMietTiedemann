@@ -1,7 +1,8 @@
 import { fetchHelper } from '../fetchHelper';
+import { Category } from '../../types/categories';
 
 
-export const getAllCategories = async () => {
+export const getAllCategories = async (): Promise<Category[]> => {
     return await fetchHelper('/category/all');
 }
 
