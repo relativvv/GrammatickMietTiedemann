@@ -24,9 +24,11 @@ class CategoryController extends AbstractController
     #[Route('/category/{id}', name: 'app_one_category')]
     public function getQuestionsByCategory(int $id): JsonResponse
     {
+        print_r($id);
         $category = $this->categoryService->findCategoryById($id);
+        print_r($category);
         $questions = array_map(static fn ($question) => $question->toArrayWithoutAnswers(), $this->categoryService->getAllQuestionsByCategory($category));
-
+        print_r($questions);
         return new JsonResponse($questions);
     }
 }

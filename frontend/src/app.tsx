@@ -4,12 +4,8 @@ import './app.scss';
 import Header from "./components/header/header";
 import Description from "./components/description/description";
 import {Container} from "react-bootstrap";
-<<<<<<< Updated upstream
 import MultipleChoice from "./components/answerTypes/multipleChoice/multipleChoice";
-import { getAllCategories } from './api/categories/categories';
-=======
 import { getAllCategories, getQuestions } from './api/categories/categories';
->>>>>>> Stashed changes
 
 const app: FC<Record<string, never>> = () => {
 
