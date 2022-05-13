@@ -61,12 +61,15 @@ body {
         &:focus,
         &:not(:placeholder-shown) {
             padding: 16px 16px 7px;
-            background-image: linear-gradient($background-color, $background-color), linear-gradient(135deg, $turquoise, $green);
 
             & ~ label {
                 transform: scale(.625);
                 margin-top: 2px;
             }
+        }
+
+        &:focus {
+            background-image: linear-gradient($background-color, $background-color), linear-gradient(135deg, $turquoise, $green);
         }
     }
 
