@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Question;
 use App\Service\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -27,7 +28,8 @@ class CategoryController extends AbstractController
         print_r($id);
         $category = $this->categoryService->findCategoryById($id);
         print_r($category);
-        $questions = array_map(static fn ($question) => $question->toArrayWithoutAnswers(), $this->categoryService->getAllQuestionsByCategory($category));
+        $questions = $this->categoryService->getAllQuestionsByCategory($category);
+        $questions = array_map(static fn (Question $question) => $question->toArrayWithoutAnswers(), $questions);
         print_r($questions);
         return new JsonResponse($questions);
     }
