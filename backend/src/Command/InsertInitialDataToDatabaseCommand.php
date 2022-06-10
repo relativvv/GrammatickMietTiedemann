@@ -43,6 +43,7 @@ class InsertInitialDataToDatabaseCommand extends Command
 
         $categorie = new Category();
         $categorie->setName('Alltägliche Fehler');
+        $categorie->setDescription(' ');
         $this->questionRepository->createCategorie($categorie);
 
         $question  = $this->createQuestion('Welche der folgenden Schreibweisen ist richtig?', ['Gar nicht', 'Garnicht'], $categorie,  $type);
@@ -77,6 +78,7 @@ class InsertInitialDataToDatabaseCommand extends Command
 
         $categorie = new Category();
         $categorie->setName('Satzbau');
+        $categorie->setDescription(' ');
         $this->questionRepository->createCategorie($categorie);
 
         $question  = $this->createQuestion('Welcher Satzbau ist richtig?  ', ['Ich wohne in Berlin.', 'Ich in Berlin wohnen.'], $categorie,  $type);
@@ -106,6 +108,7 @@ class InsertInitialDataToDatabaseCommand extends Command
 
         $categorie = new Category();
         $categorie->setName('ss oder ß');
+        $categorie->setDescription(' ');
         $this->questionRepository->createCategorie($categorie);
 
         $question  = $this->createQuestion('Fä__er', ['Fässer', 'Fäßer'], $categorie,  $type);
@@ -137,6 +140,7 @@ class InsertInitialDataToDatabaseCommand extends Command
 
         $categorie = new Category();
         $categorie->setName('Setze die richtigen Konjunktionen ein');
+        $categorie->setDescription(' ');
         $this->questionRepository->createCategorie($categorie);
 
         $question = $this->createQuestion('Thomas liebt es, Fußball zu spielen, ____ er sich da so richtig austoben kann ____ mit seinen Freunden zusammen ist.', ['weil', 'du'], $categorie,  $type);
@@ -169,6 +173,7 @@ class InsertInitialDataToDatabaseCommand extends Command
 
         $categorie = new Category();
         $categorie->setName('derselbe/dieselbe/dasselbe oder der/die/das');
+        $categorie->setDescription(' ');
         $this->questionRepository->createCategorie($categorie);
 
         $question = $this->createQuestion('Ich fand deine Bluse so schön, dass ich mir ______ gekauft habe.', ['die Gleiche'], $categorie,  $type);
@@ -188,6 +193,7 @@ class InsertInitialDataToDatabaseCommand extends Command
 
         $categorie = new Category();
         $categorie->setName('Welches der Wörter wird groß geschrieben?');
+        $categorie->setDescription(' ');
         $this->questionRepository->createCategorie($categorie);
 
         $question = $this->createQuestion('Der ________ weiß das er auf dem Fahrradweg fahren muss.', ['Fahrradfahrer', 'fahrradfahrer'], $categorie,  $type);
