@@ -14,6 +14,7 @@ const app: React.FunctionComponent = () => {
     const [topics, setTopics] = useState([] as Array<Category>);
     const [selectedTopicId, setSelectedTopicId] = useState(0);
     const [selectedTopic, setSelectedTopic] = useState(null as unknown as Category);
+    const [showLogin, setShowLogin] = useState(false);
 
     const fetchCategories = async () => {
         const categories = await getAllCategories();
@@ -40,54 +41,60 @@ const app: React.FunctionComponent = () => {
 
     return (
         <>
-            <Header />
-            <Container className='container'>
-                {selectedTopicId === 0
+            <Header setShowLogin={setShowLogin} />
+            {
+                showLogin
                     ? (
-                        <>
-                            <Description />
-                            {
-                                topics.map((t, index) => {
-                                    return (
-                                        <Topic
-                                            key={index}
-                                            id={t.id}
-                                            frontPage={true}
-                                            image='https://static.dw.com/image/17969819_303.jpg'
-                                            alt='dass/das Bild'
-                                            headline={t.name}
-                                            description={t.description}
-                                            // @ts-expect-error whyy
-                                            setIsFrontPage={setSelectedTopicId}
-                                        />
-                                    )
-                                })
-                            }
-                        </>
-                )
-                : (
-                    <>
-                        {
-                            selectedTopic && (
-                                <Topic
-                                    key={selectedTopic.id}
-                                    id={selectedTopic.id}
-                                    frontPage={false}
-                                    image='https://static.dw.com/image/17969819_303.jpg'
-                                    alt='dass/das Bild'
-                                    headline={selectedTopic.name}
-                                    description={selectedTopic.description}
-                                    // @ts-expect-error whyy
-                                    setIsFrontPage={setSelectedTopicId}
-                                />
-                            )
-                        }
-                    </>
-                    )}
-            </Container>
-            <Container style={{ marginTop: 500 }}>
-                <LoginRegistration />
-            </Container>
+                        <Container>
+                            <LoginRegistration />
+                        </Container>
+                    ) : (
+                        <Container className='container'>
+                            {selectedTopicId === 0
+                                ? (
+                                    <>
+                                        <Description />
+                                        {
+                                            topics.map((t, index) => {
+                                                return (
+                                                    <Topic
+                                                        key={index}
+                                                        id={t.id}
+                                                        frontPage={true}
+                                                        image='https://static.dw.com/image/17969819_303.jpg'
+                                                        alt='dass/das Bild'
+                                                        headline={t.name}
+                                                        description={t.description}
+                                                        // @ts-expect-error whyy
+                                                        setIsFrontPage={setSelectedTopicId}
+                                                    />
+                                                )
+                                            })
+                                        }
+                                    </>
+                                )
+                                : (
+                                    <>
+                                        {
+                                            selectedTopic && (
+                                                <Topic
+                                                    key={selectedTopic.id}
+                                                    id={selectedTopic.id}
+                                                    frontPage={false}
+                                                    image='https://static.dw.com/image/17969819_303.jpg'
+                                                    alt='dass/das Bild'
+                                                    headline={selectedTopic.name}
+                                                    description={selectedTopic.description}
+                                                    // @ts-expect-error whyy
+                                                    setIsFrontPage={setSelectedTopicId}
+                                                />
+                                            )
+                                        }
+                                    </>
+                                )}
+                        </Container>
+                    )
+            }
         </>
     )
 };
