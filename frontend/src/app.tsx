@@ -39,7 +39,8 @@ const app: React.FunctionComponent = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        // fetchCategories().then();
+        fetchCategories()
+            .then(/* ignore */);
     }, []);
 
     useEffect(() => {
@@ -51,8 +52,6 @@ const app: React.FunctionComponent = () => {
             }
         }
     }, [selectedTopicId])
-
-    console.log(selectedTopicId)
 
     return (
         <>
