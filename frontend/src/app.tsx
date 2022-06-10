@@ -5,36 +5,21 @@ import './app.scss';
 import Header from "./components/header/header";
 import Description from "./components/description/description";
 import {Container} from "react-bootstrap";
-import MultipleChoice from "./components/answerTypes/multipleChoice/multipleChoice";
-import LoginRegistration from "./components/loginRegistration/loginRegistration";
-import { getAllCategories, getQuestions } from './api/categories/categories';
 import {Category} from "./types/categories";
 import Topic from "./components/topic/topic";
+import LoginRegistration from "./components/loginRegistration/loginRegistration";
+import {getAllCategories, getQuestions} from "./api/categories/categories";
 
 const app: React.FunctionComponent = () => {
-    const [topics, setTopics] = useState([{
-        id: 1,
-        name: 'Dass oder das?',
-        description: 'In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. \n Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen. \n In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen.'
-    },
-    {
-        id: 2,
-        name: 'Rechtschreibung',
-        description: 'In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. \n Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen. \n In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen.'
-    },
-    {
-        id: 3,
-        name: 'Groß- oder Kleinschreibung',
-        description: 'In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. \n Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen. \n In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen.'
-    }] as Array<Category>);
+    const [topics, setTopics] = useState([] as Array<Category>);
     const [selectedTopicId, setSelectedTopicId] = useState(0);
     const [selectedTopic, setSelectedTopic] = useState(null as unknown as Category);
 
     const fetchCategories = async () => {
         const categories = await getAllCategories();
         setTopics(categories);
-        const test = await getQuestions(categories[0].id);
-        console.log("test", test);
+        const question = await getQuestions(categories[0].id);
+        console.log("question", question);
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -72,7 +57,7 @@ const app: React.FunctionComponent = () => {
                                             alt='dass/das Bild'
                                             headline={t.name}
                                             description={t.description}
-                                            // @ts-expect-error
+                                            // @ts-expect-error whyy
                                             setIsFrontPage={setSelectedTopicId}
                                         />
                                     )
@@ -92,13 +77,16 @@ const app: React.FunctionComponent = () => {
                                     alt='dass/das Bild'
                                     headline={selectedTopic.name}
                                     description={selectedTopic.description}
-                                    // @ts-expect-error
+                                    // @ts-expect-error whyy
                                     setIsFrontPage={setSelectedTopicId}
                                 />
                             )
                         }
                     </>
                     )}
+            </Container>
+            <Container style={{ marginTop: 500 }}>
+                <LoginRegistration />
             </Container>
         </>
     )
