@@ -5,12 +5,12 @@ const InputAnswer = () => {
 
     const tempQuestions = ['', '','','',]
     const [writtenAnswers, setWrittenAnswers] = useState<Array<string>>(tempQuestions?.map(() => ''));
-  
+
     const mergeAnswers = (answer:string, index:number) => {
         if (writtenAnswers?.length > (index -1)) {
             setWrittenAnswers((prevState) => {
                 const tempState = [...prevState];
-                tempState[index] = answer;    
+                tempState[index] = answer;
                 return tempState;
             });
         }
@@ -18,9 +18,7 @@ const InputAnswer = () => {
 
     return (
         <div className="inputAnswer">
-            <div className="headline">
-                Headline
-            </div>
+            <h1>Headline</h1>
             <div className="content">
                 <div className="question">
                     <div>Fragestellung:</div>
@@ -31,7 +29,7 @@ const InputAnswer = () => {
                     <label htmlFor="answer">Antwort:</label>
                 </div>
                 <div className="submit-button">
-                    <button className="btn btn-success">Absenden</button>
+                    <button className="btn btn-primary">Absenden</button>
                 </div>
             </div>
         </div>
