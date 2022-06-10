@@ -68,7 +68,7 @@ const app: React.FunctionComponent = () => {
                                             key={index}
                                             id={t.id}
                                             frontPage={true}
-                                            image='https://www.kapiert.de/media/image/AB1FDD01/A4ED779D/79386D4A/3B422604.png'
+                                            image='https://static.dw.com/image/17969819_303.jpg'
                                             alt='dass/das Bild'
                                             headline={t.name}
                                             description={t.description}
@@ -88,7 +88,7 @@ const app: React.FunctionComponent = () => {
                                     key={selectedTopic.id}
                                     id={selectedTopic.id}
                                     frontPage={false}
-                                    image='https://www.kapiert.de/media/image/AB1FDD01/A4ED779D/79386D4A/3B422604.png'
+                                    image='https://static.dw.com/image/17969819_303.jpg'
                                     alt='dass/das Bild'
                                     headline={selectedTopic.name}
                                     description={selectedTopic.description}
