@@ -10,9 +10,10 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class TypeRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
-        parent::__construct($registry, Type::class);
+    public function __construct(
+        private ManagerRegistry $registry,
+    ) {
+        parent::__construct($registry, Question::class);
     }
 
     /**
@@ -37,5 +38,12 @@ class TypeRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+
+    public function createQuestion(Type $question): void
+    {
+        $entityManager = $this->registry->getManager();
+        $entityManager->persist($question);
+        $entityManager->flush();
     }
 }

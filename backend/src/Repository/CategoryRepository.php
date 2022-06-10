@@ -10,8 +10,9 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class CategoryRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
+    public function __construct(
+        private ManagerRegistry $registry,
+    ) {
         parent::__construct($registry, Category::class);
     }
 
@@ -27,5 +28,12 @@ class CategoryRepository extends ServiceEntityRepository
 
     public function findAllQuestionsByCategory(Category $category): array {
         return $this->findBy(['category' => $category]);
+    }
+
+    public function createQuestion(Category $question): void
+    {
+        $entityManager = $this->registry->getManager();
+        $entityManager->persist($question);
+        $entityManager->flush();
     }
 }
