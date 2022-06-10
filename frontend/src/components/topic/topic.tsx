@@ -1,6 +1,8 @@
 import React from 'react';
 import './topic.scss';
 import {Container, Image} from "react-bootstrap";
+import MultipleChoice from "../answerTypes/multipleChoice/multipleChoice";
+import InputAnswer from "../answerTypes/inputAnswer/inputAnswer";
 
 type TopicProps = {
     frontPage: boolean,
@@ -61,6 +63,12 @@ const Topic: React.FunctionComponent<TopicProps> = ({
                 <p dangerouslySetInnerHTML={{
                     __html: description.replaceAll('\n', '<br/>') }}
                 />
+                <div className='show-work'>
+                    <MultipleChoice />
+                </div>
+                <div className='show-work'>
+                    <InputAnswer />
+                </div>
             </Container>
         </>
     );

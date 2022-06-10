@@ -5,36 +5,22 @@ import './app.scss';
 import Header from "./components/header/header";
 import Description from "./components/description/description";
 import {Container} from "react-bootstrap";
-import MultipleChoice from "./components/answerTypes/multipleChoice/multipleChoice";
-import LoginRegistration from "./components/loginRegistration/loginRegistration";
-import { getAllCategories, getQuestions } from './api/categories/categories';
 import {Category} from "./types/categories";
 import Topic from "./components/topic/topic";
+import LoginRegistration from "./components/loginRegistration/loginRegistration";
+import {getAllCategories, getQuestions} from "./api/categories/categories";
 
 const app: React.FunctionComponent = () => {
-    const [topics, setTopics] = useState([{
-        id: 1,
-        name: 'Dass oder das?',
-        description: 'In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. \n Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen. \n In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen.'
-    },
-    {
-        id: 2,
-        name: 'Rechtschreibung',
-        description: 'In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. \n Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen. \n In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen.'
-    },
-    {
-        id: 3,
-        name: 'Groß- oder Kleinschreibung',
-        description: 'In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. \n Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen. \n In jedem Fall bezieht sich ein “das” auf ein Nomen und lässt sich durch “dieses”, “jenes” oder “welches” ersetzen. Da sich das “dass” auf kein Nomen bezieht, sondern als Konjunktion einen Nebensatz einleitet, lässt es sich durch kein anderes Wort ersetzen.'
-    }] as Array<Category>);
+    const [topics, setTopics] = useState([] as Array<Category>);
     const [selectedTopicId, setSelectedTopicId] = useState(0);
     const [selectedTopic, setSelectedTopic] = useState(null as unknown as Category);
+    const [showLogin, setShowLogin] = useState(false);
 
     const fetchCategories = async () => {
         const categories = await getAllCategories();
         setTopics(categories);
-        const test = await getQuestions(categories[0].id);
-        console.log("test", test);
+        const question = await getQuestions(categories[0].id);
+        console.log("question", question);
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -55,51 +41,60 @@ const app: React.FunctionComponent = () => {
 
     return (
         <>
-            <Header />
-            <Container className='container'>
-                {selectedTopicId === 0
+            <Header setShowLogin={setShowLogin} />
+            {
+                showLogin
                     ? (
-                        <>
-                            <Description />
-                            {
-                                topics.map((t, index) => {
-                                    return (
-                                        <Topic
-                                            key={index}
-                                            id={t.id}
-                                            frontPage={true}
-                                            image='https://static.dw.com/image/17969819_303.jpg'
-                                            alt='dass/das Bild'
-                                            headline={t.name}
-                                            description={t.description}
-                                            // @ts-expect-error
-                                            setIsFrontPage={setSelectedTopicId}
-                                        />
-                                    )
-                                })
-                            }
-                        </>
-                )
-                : (
-                    <>
-                        {
-                            selectedTopic && (
-                                <Topic
-                                    key={selectedTopic.id}
-                                    id={selectedTopic.id}
-                                    frontPage={false}
-                                    image='https://static.dw.com/image/17969819_303.jpg'
-                                    alt='dass/das Bild'
-                                    headline={selectedTopic.name}
-                                    description={selectedTopic.description}
-                                    // @ts-expect-error
-                                    setIsFrontPage={setSelectedTopicId}
-                                />
-                            )
-                        }
-                    </>
-                    )}
-            </Container>
+                        <Container>
+                            <LoginRegistration />
+                        </Container>
+                    ) : (
+                        <Container className='container'>
+                            {selectedTopicId === 0
+                                ? (
+                                    <>
+                                        <Description />
+                                        {
+                                            topics.map((t, index) => {
+                                                return (
+                                                    <Topic
+                                                        key={index}
+                                                        id={t.id}
+                                                        frontPage={true}
+                                                        image='https://static.dw.com/image/17969819_303.jpg'
+                                                        alt='dass/das Bild'
+                                                        headline={t.name}
+                                                        description={t.description}
+                                                        // @ts-expect-error whyy
+                                                        setIsFrontPage={setSelectedTopicId}
+                                                    />
+                                                )
+                                            })
+                                        }
+                                    </>
+                                )
+                                : (
+                                    <>
+                                        {
+                                            selectedTopic && (
+                                                <Topic
+                                                    key={selectedTopic.id}
+                                                    id={selectedTopic.id}
+                                                    frontPage={false}
+                                                    image='https://static.dw.com/image/17969819_303.jpg'
+                                                    alt='dass/das Bild'
+                                                    headline={selectedTopic.name}
+                                                    description={selectedTopic.description}
+                                                    // @ts-expect-error whyy
+                                                    setIsFrontPage={setSelectedTopicId}
+                                                />
+                                            )
+                                        }
+                                    </>
+                                )}
+                        </Container>
+                    )
+            }
         </>
     )
 };
