@@ -31,7 +31,8 @@ const Topic: React.FunctionComponent<TopicProps> = ({
                 <div className='p2 topic-front-page__text'>
                     <h1>{headline}</h1>
                     <p dangerouslySetInnerHTML={{
-                        __html: `${description.substring(0, 400)} ...`.replaceAll('\n', '<br/>') }}
+                        __html: `${description.substring(0, 400)}${description.length >= 400 ? ' ...' : ''}`
+                            .replaceAll('\n', '<br/>') }}
                     />
                 </div>
                 <Image
