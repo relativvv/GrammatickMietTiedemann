@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:42069';
+const BASE_URL = 'https://api.grammatickmiettiedemann.relativv.de';
 
 export const fetchHelper = async (url: string) => {
     try {
